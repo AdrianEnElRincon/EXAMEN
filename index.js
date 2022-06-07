@@ -117,7 +117,7 @@ form.addEventListener('submit', (ev) => {
     event.preventDefault()
     const imageSrc = document.querySelector('form>input').value
 
-    if (imageSrc) {
+    if (imageSrc.match(/\w+/g)) {
         $.ajax({
             url: '/img/' + imageSrc,
             success: (data) => {
