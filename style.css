@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@font-face {
+    font-family: 'Digital7';
+    src: url('fonts/digital-7.ttf');
+}
+
+:root {
+    --titlebar-height: 35px;
+    --calculator-display-height: 100px;
+}
+
+body {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 18px;
+}
+
+
+/*
+
+    CSS de ventana
+
+*/
+
+.window-frame {
+    border: 2px solid black;
+    position: relative;
+    display: inline-block;
+    background-color: #ddd;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.window-titlebar {
+    background-color: #aaa;
+    user-select: none;
+    height: var(--titlebar-height);
+    width: 100%;
+    position: relative;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+.window-title {
+    margin: 0px;
+    line-height: var(--titlebar-height);
+    font-size: 24px;
+    width: calc(100% - 10px - var(--titlebar-height));
+    padding-left: 10px;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
+
+.window-terminate {
+    position: absolute;
+    width: var(--titlebar-height);
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    font-size: var(--titlebar-height);
+    line-height: var(--titlebar-height);
+    text-align: center;
+}
+
+.window-terminate:hover {
+    background-color: orangered;
+}
+
+.window-content {
+    width: 100%;
+    height: max-content;
+}
+
