@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Actividad 1: Manipulación del DOM</title>
+
+    <!-- <style>
+        th,
+        td {
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style> -->
+</head>
+
+<body>
+    <h1>Actividad 1: Manipulación del DOM</h1>
+    <p>En esta actividad mostraremos los datos de la variable employees en este HTML como una tabla. Construye todos los elementos haciendo uso de funciones js</p>
+    <p>En caso de que el campo de control sea 0, se debe mostrar el color de fuente de esa fila en color rojo</p>
+    <div id="table-container"></div>
+    <script>
+        let employees = [{
+            "id": 1,
+            "name": "MIRIAM CASTIÑEIRA BREA",
+            "department": "IT",
+            "control": 1
+        }, {
+            "id": 2,
+            "name": "GONZALO MULET FIGUERAS",
+            "department": "IT",
+            "control": 1
+        }, {
+            "id": 3,
+            "name": "FRANCISCO JOSE GRAÑA BARBERA",
+            "department": "IT",
+            "control": 1
+        }, {
+            "id": 4,
+            "name": "IRENE POMBO JORDA",
+            "department": "HR",
+            "control": 0
+        }];
+
+        let table = document.createElement('table');
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        table.className = 'table table-striped text-center';
+
+        document.getElementById('table-container').appendChild(table);
+        document.getElementById('table-container').className = 'container mt-5'
+
+        // Creación del THead
+
+        let head = document.createElement('tr');
+        let th1 = document.createElement('th');
+        let nodeTh1 = document.createTextNode('ID');
+        th1.appendChild(nodeTh1);
+
+        let th2 = document.createElement('th');
+        let nodeTh2 = document.createTextNode('Name');
+        th2.appendChild(nodeTh2);
+
+        let th3 = document.createElement('th');
+        let nodeTh3 = document.createTextNode('Department');
+        th3.appendChild(nodeTh3);
+
+        let th4 = document.createElement('th');
+        let nodeTh4 = document.createTextNode('Control');
+        th4.appendChild(nodeTh4);
+
+        head.appendChild(th1);
+        head.appendChild(th2);
+        head.appendChild(th3);
+        head.appendChild(th4);
+
+        thead.appendChild(head);
+
+
+
+        // Crear el TBody con los datos de employees
+
+        employees.forEach(employee => {
+            let row = document.createElement('tr');
+            if (employee.control === 0) row.style.color = 'red';
+
+            let tId = document.createElement('td');
+            let nodeTId = document.createTextNode(employee.id);
+            tId.appendChild(nodeTId);
+
+            let tName = document.createElement('td');
+            let nodeTName = document.createTextNode(employee.name);
+            tName.appendChild(nodeTName);
+
+            let tDepartment = document.createElement('td');
+            let nodeTDepartment = document.createTextNode(employee.department);
+            tDepartment.appendChild(nodeTDepartment);
+
+            let tControl = document.createElement('td');
+            let nodeTControl = document.createTextNode(employee.control);
+            tControl.appendChild(nodeTControl);
+
+
+            row.appendChild(tId);
+            row.appendChild(tName);
+            row.appendChild(tDepartment);
+            row.appendChild(tControl);
+
+            tbody.appendChild(row);
+        })
+    </script>
+</body>
+
+</html>
